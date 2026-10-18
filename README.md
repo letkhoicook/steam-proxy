@@ -15,11 +15,23 @@ It needs only Python 3.8+ (standard library, no dependencies) and listens on `12
 
 | File | Purpose |
 | --- | --- |
+| `setup.bat` | One-step install / uninstall (see below) |
 | `steam_proxy.py` | The proxy: an HTTPS `CONNECT` proxy plus a PAC file served at `/proxy.pac` |
 | `open-steam.bat` | Starts the proxy and opens the Steam store in a separate Chrome profile that uses it |
 | `browser-profile/` | Created by `open-steam.bat`. It holds your cookies and logins and is git-ignored. Never commit it |
 
-## Usage
+## Quick setup
+
+Double-click `setup.bat` and choose **1. Install** or **2. Uninstall**. Or from a terminal:
+
+```
+setup.bat install     # start at login, set the Windows setup script, start the proxy now
+setup.bat uninstall   # stop the proxy, remove the login shortcut and the setup script
+```
+
+Install does Option 1 and "Start automatically at login" below in one go. It's safe to run again, and it won't overwrite a different setup script that's already configured (for example a company one). No admin rights needed.
+
+## Manual usage
 
 ### Option 1: system-wide via PAC (recommended)
 
